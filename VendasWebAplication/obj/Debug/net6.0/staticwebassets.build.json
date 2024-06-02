@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wvxkjhl/FJ7pwyMPaEwbEsmUABM+Z2YdB0yIv31xhtc=",
+  "Hash": "K7TI5Y5xrtD41z/mMTvRwxCHWspjlo8qwBx3zAeofig=",
   "Source": "VendasWebAplication",
   "BasePath": "_content/VendasWebAplication",
   "Mode": "Default",
@@ -236,6 +236,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Identity": "C:\\Programação_C#\\VendasWebAplication\\VendasWebAplication\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-celerun.css",
+      "SourceId": "VendasWebAplication",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Programação_C#\\VendasWebAplication\\VendasWebAplication\\wwwroot\\",
+      "BasePath": "_content/VendasWebAplication",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap-celerun.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-celerun.css"
+    },
+    {
+      "Identity": "C:\\Programação_C#\\VendasWebAplication\\VendasWebAplication\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-flatly.css",
+      "SourceId": "VendasWebAplication",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Programação_C#\\VendasWebAplication\\VendasWebAplication\\wwwroot\\",
+      "BasePath": "_content/VendasWebAplication",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap-flatly.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-flatly.css"
     },
     {
       "Identity": "C:\\Programação_C#\\VendasWebAplication\\VendasWebAplication\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
