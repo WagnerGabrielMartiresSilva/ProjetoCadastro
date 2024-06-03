@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using VendasWebAplication.Data;
 using Microsoft.AspNetCore.Localization;
 using System.Globalization;
+using VendasWebAplication.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +20,7 @@ builder.Services.AddDbContext<VendasWebAplicationContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("VendasWebAplicationContext"), new MySqlServerVersion(new Version(8, 0, 23))));
 
 builder.Services.AddScoped<SeedingService>();
+builder.Services.AddScoped<SellerService>();
 
 builder.Services.AddControllersWithViews();
 
