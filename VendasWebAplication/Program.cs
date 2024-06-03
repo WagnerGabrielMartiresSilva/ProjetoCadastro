@@ -1,10 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using VendasWebAplication.Data;
-//using VendasWebAplication.Services;
 using Microsoft.AspNetCore.Localization;
 using System.Globalization;
-using SalesWebMvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -56,11 +54,20 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+// Crie um escopo de serviços e chame o método Seed
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
-    var seedingService = services.GetRequiredService<SeedingService>();
-   // seedingService.Seed();
+    try
+    {
+        var seedingService = services.GetRequiredService<SeedingService>();
+        seedingService.Seed();
+    }
+    catch (Exception ex)
+    {
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "Ocorreu um erro ao popular a base de dados.");
+    }
 }
 
 app.Run();
