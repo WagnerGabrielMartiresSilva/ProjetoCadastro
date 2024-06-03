@@ -9,11 +9,13 @@ namespace VendasWebAplication.Data
 {
     public class VendasWebAplicationContext : DbContext
     {
-        public VendasWebAplicationContext (DbContextOptions<VendasWebAplicationContext> options)
-            : base(options)
+        public VendasWebAplicationContext (DbContextOptions<VendasWebAplicationContext> options) : base(options)
         {
         }
 
-        public DbSet<VendasWebAplication.Models.Department> Department { get; set; } = default!;
+        public DbSet<Department> Department { get; set; } 
+        public DbSet<Seller> Seller { get; set; }
+        public DbSet<SalesRecord> SalesRecord { get; set; }
+        
     }
 }
