@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace VendasWebAplication.Models 
+namespace VendasWebAplication.Models
 {
-    public class Department {
+    public class Department
+    {
         public int Id { get; set; }
         public string Name { get; set; }
-        public ICollection<Seller> Sellers { get; set;} = new List<Seller>();
+        public ICollection<Seller> Sellers { get; set; } = new List<Seller>();
 
         //Aqui estou criando um construtor vazio,é preciso criar pois terei construtor com argumentos
-        public Department() 
+        public Department()
         {
-        
+
         }
 
         //Aqui criei um construtor com argumentos

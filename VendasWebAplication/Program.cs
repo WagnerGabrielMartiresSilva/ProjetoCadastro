@@ -56,6 +56,8 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+
+
 // Crie um escopo de serviços e chame o método Seed
 using (var scope = app.Services.CreateScope())
 {
