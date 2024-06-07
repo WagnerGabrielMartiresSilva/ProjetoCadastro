@@ -14,7 +14,7 @@ namespace VendasWebAplication.Services
 
         public List<Department> FindAll()
         {
-            return _context.Department.OrderBy(d => d.Name).ToList();
+            return _context.Department.OrderBy(x => x.Name).ToList();
         }
     }
 }
