@@ -2,6 +2,7 @@
 using VendasWebAplication.Data;
 using VendasWebAplication.Models;
 using Microsoft.EntityFrameworkCore;
+using VendasWebAplication.Services.Exceptions;
 
 namespace VendasWebAplication.Services
 {
@@ -45,5 +46,25 @@ namespace VendasWebAplication.Services
             }
         }
 
+        public void Update(Seller obj) 
+        {
+            //Any serve para dizer se existe algum registro no banco de dados com a condição que vc colocar
+            //Estou testanto no banco de dados se tem algum vendedor x cujo Id seja igual o Id do meu obj
+            if(!_context.Seller.Any(x => x.Id == obj.Id)) 
+            {
+                throw new NotFoundException("Id not found");
+            }
+            try
+            {
+                _context.Update(obj);
+                _context.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException e)
+            {
+                throw new DbConcurrencyException(e.Message);
+            }
+        }
+
+       
     }
 }
