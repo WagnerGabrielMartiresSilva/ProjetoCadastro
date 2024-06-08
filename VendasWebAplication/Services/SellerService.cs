@@ -1,6 +1,7 @@
 ﻿using VendasWebAplication.Controllers;
 using VendasWebAplication.Data;
 using VendasWebAplication.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace VendasWebAplication.Services
 {
@@ -30,7 +31,7 @@ namespace VendasWebAplication.Services
         // Passo 3: Encontra um vendedor pelo seu ID no banco de dados.
         public Seller FindById(int id) 
         {
-            return _context.Seller.FirstOrDefault(obj => obj.Id == id);
+            return _context.Seller.Include(obj => obj.Department).FirstOrDefault(obj => obj.Id == id);
         }
 
         // Passo 4: Remove um vendedor do banco de dados com base no seu ID.

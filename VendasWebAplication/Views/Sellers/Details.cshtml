@@ -1,0 +1,49 @@
+﻿@model VendasWebAplication.Models.Seller
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2 font-weight-bold">
+            @Html.DisplayNameFor(model => model.Name):
+        </div>
+        <div class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2 font-weight-bold">
+            @Html.DisplayNameFor(model => model.Email):
+        </div>
+        <div class="col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2 font-weight-bold">
+            @Html.DisplayNameFor(model => model.BirthDate):
+        </div>
+        <div class="col-sm-10">
+            @Html.DisplayFor(model => model.BirthDate)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2 font-weight-bold">
+            @Html.DisplayNameFor(model => model.Department):
+        </div>
+        <div class="col-sm-10">
+            @Html.DisplayFor(model => model.Department.Name)
+        </div>
+    </div>
+</div>
+
+<div class="mt-3">
+    <!-- Link para a ação Edit, passando o ID do vendedor -->
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-info mr-2">Edit</a>
+    <!-- Link para voltar para a lista de vendedores -->
+    <a asp-action="Index" >Back to List</a>
+</div>
