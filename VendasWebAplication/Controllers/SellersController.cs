@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 using VendasWebAplication.Models;
 using VendasWebAplication.Models.ViewModels;
 using VendasWebAplication.Services;
@@ -59,7 +60,7 @@ namespace VendasWebAplication.Controllers
             // Verifica se o ID do vendedor foi fornecido
             if (id == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Error), new {message = "Id not provided"} );
             }
 
             // Busca o vendedor pelo ID
@@ -68,7 +69,7 @@ namespace VendasWebAplication.Controllers
             // Verifica se o vendedor foi encontrado
             if (obj == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Error), new { message = "Id not found" });
             }
 
             // Encaminha os dados do vendedor para a view Delete
@@ -93,14 +94,14 @@ namespace VendasWebAplication.Controllers
 
             if (id == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Error), new { message = "Id not provided" });
             }
 
 
             var obj = _sellerService.FindById(id.Value);
             if (obj == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Error), new { message = "Id not found" });
             }
 
             return View(obj);
@@ -111,13 +112,13 @@ namespace VendasWebAplication.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Error), new { message = "Id not provided" });
             }
 
             var obj = _sellerService.FindById(id.Value);
             if (obj == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Error), new { message = "Id not found" });
             }
 
             List<Department> departments = _departmentService.FindAll();
@@ -131,7 +132,7 @@ namespace VendasWebAplication.Controllers
         {
             if (id != seller.Id)
             {
-                return BadRequest();
+                return RedirectToAction(nameof(Error), new { message = "Id mismatch" });
             }
             try
             {
@@ -139,15 +140,26 @@ namespace VendasWebAplication.Controllers
                 return RedirectToAction(nameof(Index));
 
             }
-            catch (NotFoundException) 
+            catch (NotFoundException e) 
             {
-                return NotFound();
+                return RedirectToAction(nameof(Error), new { message = e.Message });
             }
-            catch (DbConcurrencyException) 
+            catch (DbConcurrencyException e) 
             {
-                return BadRequest();
-            
+                return RedirectToAction(nameof(Error), new { message = e.Message });
+
             }
+        }
+
+        public IActionResult Error(string message)
+        {
+            var ViewModel = new ErrorViewModel
+            {
+                Message = message,
+                //Serve para pegar o Id interno da Requisição
+                RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
+            };
+            return View(ViewModel);
         }
     }
 }
