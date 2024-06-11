@@ -5,8 +5,10 @@ namespace VendasWebAplication.Models
     public class Seller
     {
         public int Id { get; set; }
+       
         [Display(Name = "Nome")]
         [Required(ErrorMessage ="{0} Obrigatório")]
+        [StringLength(60, MinimumLength = 3, ErrorMessage ="{0} size should be betwen {2} and and {1}")]
         public string Name { get; set; }
 
         [Required(ErrorMessage = "{0} Obrigatório")]
