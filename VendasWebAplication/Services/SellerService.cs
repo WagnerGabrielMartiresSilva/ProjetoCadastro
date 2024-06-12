@@ -1,7 +1,15 @@
-﻿using VendasWebAplication.Controllers;
-using VendasWebAplication.Data;
+﻿using VendasWebAplication.Data;
+using VendasWebAplication.Services;
 using VendasWebAplication.Models;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using VendasWebAplication.Services.Exceptions;
 
 namespace VendasWebAplication.Services
@@ -15,13 +23,12 @@ namespace VendasWebAplication.Services
             _context = context;
         }
 
-        // Passo 1: Retorna todos os vendedores do banco de dados.
-        public List<Seller> FindAll()
+        public  List<Seller> FindAll()
         {
-            return _context.Seller.ToList();
+
+            return  _context.Seller.ToList();
         }
-        
-        // Passo 2: Insere um novo vendedor no banco de dados.
+
         public void Insert(Seller obj)
         {
             
@@ -29,42 +36,40 @@ namespace VendasWebAplication.Services
             _context.SaveChanges();
         }
 
-        // Passo 3: Encontra um vendedor pelo seu ID no banco de dados.
-        public Seller FindById(int id) 
+        public Seller FindById(int id)
         {
-            return _context.Seller.Include(obj => obj.Department).FirstOrDefault(obj => obj.Id == id);
+            return  _context.Seller.Include(obj => obj.Department).FirstOrDefault(obj => obj.Id ==  id);
         }
 
-        // Passo 4: Remove um vendedor do banco de dados com base no seu ID.
         public void Remove(int id)
         {
-            var obj = _context.Seller.Find(id);
-            if (obj != null)
-            {
-                _context.Seller.Remove(obj);
-                _context.SaveChanges();
-            }
+            var obj =  _context.Seller.Find(id);
+            _context.Seller.Remove(obj);
+           _context.SaveChanges();
         }
 
-        public void Update(Seller obj) 
+        public void Update(Seller obj)
         {
-            //Any serve para dizer se existe algum registro no banco de dados com a condição que vc colocar
-            //Estou testanto no banco de dados se tem algum vendedor x cujo Id seja igual o Id do meu obj
-            if(!_context.Seller.Any(x => x.Id == obj.Id)) 
+            //Estou testando no banco de dados se algum vendedor x cujo id seja igual o id do meu objeto
+
+            if (!_context.Seller.Any(x => x.Id == obj.Id))
             {
-                throw new NotFoundException("Id not found");
+                throw new NotFoundException("Id not found Exception");
             }
             try
             {
                 _context.Update(obj);
                 _context.SaveChanges();
             }
-            catch (DbUpdateConcurrencyException e)
+            catch(DbConcurrencyException e)
             {
                 throw new DbConcurrencyException(e.Message);
             }
+            
         }
-
-       
     }
+
+
+
 }
+

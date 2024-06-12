@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Programação_C#\\VendasWebAplication\\VendasWebAplication\\VendasWebAplication.csproj": {}
+    "C:\\Programação_C#\\ProjetoCadastro\\VendasWebAplication\\VendasWebAplication.csproj": {}
   },
   "projects": {
-    "C:\\Programação_C#\\VendasWebAplication\\VendasWebAplication\\VendasWebAplication.csproj": {
+    "C:\\Programação_C#\\ProjetoCadastro\\VendasWebAplication\\VendasWebAplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Programação_C#\\VendasWebAplication\\VendasWebAplication\\VendasWebAplication.csproj",
+        "projectUniqueName": "C:\\Programação_C#\\ProjetoCadastro\\VendasWebAplication\\VendasWebAplication.csproj",
         "projectName": "VendasWebAplication",
-        "projectPath": "C:\\Programação_C#\\VendasWebAplication\\VendasWebAplication\\VendasWebAplication.csproj",
+        "projectPath": "C:\\Programação_C#\\ProjetoCadastro\\VendasWebAplication\\VendasWebAplication.csproj",
         "packagesPath": "C:\\Users\\wagne\\.nuget\\packages\\",
-        "outputPath": "C:\\Programação_C#\\VendasWebAplication\\VendasWebAplication\\obj\\",
+        "outputPath": "C:\\Programação_C#\\ProjetoCadastro\\VendasWebAplication\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

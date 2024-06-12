@@ -1,5 +1,7 @@
 ﻿using VendasWebAplication.Data;
 using VendasWebAplication.Models;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace VendasWebAplication.Services
 {
@@ -12,9 +14,9 @@ namespace VendasWebAplication.Services
             _context = context;
         }
 
-        public List<Department> FindAll()
+        public  List<Department> FindAll()
         {
-            return _context.Department.OrderBy(x => x.Name).ToList();
+            return  _context.Department.OrderBy(x => x.Name).ToList();
         }
     }
 }

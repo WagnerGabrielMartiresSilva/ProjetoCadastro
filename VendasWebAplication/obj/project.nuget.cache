@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Osyru5r1Q5N31+IIDTJ8mVLzqnn2scLCNgAKtiQFgZQmg4vkqRAZ9rLj8ndsPpJmCiQF5fWA9SKXPPZsFLxSZg==",
+  "dgSpecHash": "z72QK3mQG1mEFU92ZhTP7SK9jlz5yvsL6ltvuD/P6G7oqJSqdVLdCj2J8XKoaFu4s7kFplaIh5BUN307qD16RA==",
   "success": true,
-  "projectFilePath": "C:\\Programação_C#\\VendasWebAplication\\VendasWebAplication\\VendasWebAplication.csproj",
+  "projectFilePath": "C:\\Programação_C#\\ProjetoCadastro\\VendasWebAplication\\VendasWebAplication.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\wagne\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\wagne\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
