@@ -18,3 +18,13 @@ body {
 }
 /* Adicione esta classe ao seu arquivo site.css */
 
+.form-inline .form-group {
+    margin-right: 1rem; /* Ajuste o valor para o espaçamento desejado */
+}
+
+button.btn-primary {
+    /* Estilos existentes */
+    width: 100px; /* Ajuste a largura desejada */
+    height: 40px; /* Ajuste a altura desejada */
+   margin-top:auto;
+}

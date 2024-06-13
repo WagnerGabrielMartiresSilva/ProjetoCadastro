@@ -1,5 +1,60 @@
-﻿@{
+﻿@model IEnumerable<IGrouping<Department, SalesRecord>>
+
+@{
     ViewData["Title"] = "Grouping Search";
+    DateTime minDate = DateTime.Parse(ViewData["minDate"] as string); // Aqui pode ocorrer um erro de conversão se a ViewData["minDate"] estiver null
+    DateTime maxDate = DateTime.Parse(ViewData["maxDate"] as string); // Aqui pode ocorrer um erro de conversão se a ViewData["maxDate"] estiver null
 }
 
 <h2>@ViewData["Title"]</h2>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+        <form class="form-inline d-flex justify-content-end" role="search">
+            <div class="form-group mr-2">
+                <label for="minDate" class="mr-1">Data Mínima:</label>
+                <input type="date" class="form-control" name="minDate" value="@ViewData["minDate"]">
+            </div>
+            <div class="form-group mr-6">
+                <label for="maxDate" class="mr-1">Data Máxima:</label>
+                <input type="date" class="form-control" name="maxDate" value="@ViewData["maxDate"]">
+            </div>
+            <button type="submit" class="btn btn-primary ">Filtrar</button>
+        </form>
+    </div>
+</nav>
+<br />
+<br />
+
+
+@foreach (var departmentGroup in Model)
+{
+    <div class="card border-primary mb-3">
+        <div class="card-header bg-primary text-white">
+            <h3 class="card-title">Departamento @departmentGroup.Key.Name, Vendas Totais = @departmentGroup.Key.TotalSales(minDate, maxDate).ToString("F2")</h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr class="table-success">
+                        <th scope="col">Data</th>
+                        <th scope="col">Valor</th>
+                        <th scope="col">Vendedor</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in departmentGroup)
+                    {
+                        <tr>
+                            <td>@item.Date.ToString("dd/MM/yyyy")</td>
+                            <td>@item.Amount.ToString("F2")</td>
+                            <td>@item.Seller.Name</td>
+                            <td>@item.Status</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}

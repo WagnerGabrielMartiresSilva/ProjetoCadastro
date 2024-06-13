@@ -1,15 +1,24 @@
 ﻿using VendasWebAplication.Models.Enums;
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace VendasWebAplication.Models
 {
     public class SalesRecord
     {
         public int Id { get; set; }
+
+        [Display(Name = "Data")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime Date { get; set; }
+        
+        [Display(Name = "Salário")]
+        [DisplayFormat(DataFormatString = "{0:F2}")]
         public double Amount { get; set; }
         public SaleStatus Status { get; set; }
 
+        [Display(Name = "Vendedor")]
         //Aqui estou falando que cada SalesRecord tem 1 vendedor
         public Seller Seller { get; set; }
 

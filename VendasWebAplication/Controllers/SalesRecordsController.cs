@@ -35,9 +35,22 @@ namespace VendasWebAplication.Controllers
             return View(result);
         }
 
-        public IActionResult GroupingSearch()
+        public IActionResult GroupingSearch(DateTime? minDate, DateTime? maxDate)
         {
-            return View();
+            if (!minDate.HasValue)
+            {
+                minDate = new DateTime(DateTime.Now.Year, 1, 1);
+            }
+
+            if (!maxDate.HasValue)
+            {
+                maxDate = DateTime.Now;
+            }
+
+            ViewData["minDate"] = minDate?.ToString("yyyy-MM-dd");
+            ViewData["maxDate"] = maxDate?.ToString("yyyy-MM-dd");
+            var result = _salesRecordService.FindByDateGrouping(minDate, maxDate);
+            return View(result);
         }
     }
 }
